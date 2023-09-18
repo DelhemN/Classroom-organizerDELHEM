@@ -1,8 +1,10 @@
-from utils.file_utils import read_file, write_file
+from utils.file_utils import read_file
 from utils.table import Table
-from utils.openspace import OpenSpace
+from utils.openspace import Openspace
 
 
 if __name__ == "__main__":
-    organizer = Organizer()
-    organizer.start()
+    names = ["Nicolas DEL", "Zian", "Alexandre", "Nicolas DEN", "Anthony"]
+    openspace = Openspace()
+    openspace.organize(names)
+    openspace.display()

@@ -1,24 +1,25 @@
 from typing import List
 
-class Seat():
+
+class Seat:
     def __init__(self) -> None:
         self.free: bool = True
         self.occupant: str = ""
 
     def __str__(self) -> str:
         return self.occupant
-    
+
     def __repr__(self) -> str:
         return self.occupant
-    
+
     def set_occupant(self, name: str):
         """
         Assign a person to a free seat
         """
-        
+
         if self.free == True:
             self.occupant = name
-    
+
     def remove_occupant(self) -> str:
         """
         Remove a person from a seat
@@ -29,16 +30,17 @@ class Seat():
             self.occupant = ""
         return name
 
-class Table():
-    def __init__(self, capacity = 4) -> None:
+
+class Table:
+    def __init__(self, capacity=4) -> None:
         self.capacity: int = capacity
         self.seats: List[Seat] = []
 
     def __str__(self) -> str:
-        return self.seats[::]
-    
+        return f"{self.seats}"
+
     def __repr__(self) -> str:
-        return self.seats[::]
+        return f"{self.seats}"
 
     def has_free_spot(self) -> bool:
         """
@@ -59,7 +61,7 @@ class Table():
             if seat.free == True:
                 seat.set_occupant(name)
                 break
-    
+
     def left_capacity(self) -> int:
         """
         Count how many free seat are available
