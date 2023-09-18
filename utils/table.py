@@ -2,8 +2,14 @@ from typing import List
 
 class Seat():
     def __init__(self) -> None:
-        self.free: bool = self.free
+        self.free: bool = True
         self.occupant: str = ""
+
+    def __str__(self) -> str:
+        return self.occupant
+    
+    def __repr__(self) -> str:
+        return self.occupant
     
     def set_occupant(self, name: str):
         """
@@ -11,7 +17,7 @@ class Seat():
         """
         
         if self.free == True:
-            self.occupant == name
+            self.occupant = name
     
     def remove_occupant(self) -> str:
         """
@@ -24,9 +30,15 @@ class Seat():
         return name
 
 class Table():
-    def __init__(self) -> None:
-        self.capacity: int = self.capacity
-        self.seats: List[Seat] = self.seats
+    def __init__(self, capacity = 4) -> None:
+        self.capacity: int = capacity
+        self.seats: List[Seat] = []
+
+    def __str__(self) -> str:
+        return self.seats[::]
+    
+    def __repr__(self) -> str:
+        return self.seats[::]
 
     def has_free_spot(self) -> bool:
         """
