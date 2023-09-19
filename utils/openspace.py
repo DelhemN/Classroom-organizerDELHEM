@@ -1,4 +1,5 @@
 from random import choice
+
 from utils.table import *
 
 
@@ -8,13 +9,13 @@ class Openspace:
         self.number_of_table = number_of_table
 
     def organize(self, names):
-        choice(names)
         for name in names:
             seated = False
             for table in self.tables:
                 if table.has_free_spot():
-                    if table.assign_seat():
-                        seated = True
+                    table.assign_seat(name)
+                    seated = True
+                    if seated:
                         break
             if not seated:
                 print(f"No available seats for {name}")

@@ -34,7 +34,7 @@ class Seat:
 class Table:
     def __init__(self, capacity=4) -> None:
         self.capacity: int = capacity
-        self.seats: List[Seat] = []
+        self.seats: List[Seat] = [Seat() for _ in range(capacity)]
 
     def __str__(self) -> str:
         return f"{self.seats}"
