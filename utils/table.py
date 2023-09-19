@@ -17,7 +17,7 @@ class Seat:
         Assign a person to a free seat
         """
 
-        if self.free == True:
+        if self.free:
             self.occupant = name
 
     def remove_occupant(self) -> str:
@@ -25,7 +25,7 @@ class Seat:
         Remove a person from a seat
         """
 
-        if self.free == False:
+        if not self.free:
             name = self.occupant
             self.occupant = ""
         return name
@@ -48,7 +48,7 @@ class Table:
         """
 
         for seat in self.seats:
-            if seat.free == True:
+            if seat.free:
                 return True
         return False
 
@@ -58,7 +58,7 @@ class Table:
         """
 
         for seat in self.seats:
-            if seat.free == True:
+            if seat.free:
                 seat.set_occupant(name)
                 break
 
@@ -69,6 +69,6 @@ class Table:
 
         free_seats: int = 0
         for seat in self.seats:
-            if seat.free == True:
+            if seat.free:
                 free_seats += 1
         return free_seats
